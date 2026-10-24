@@ -44,7 +44,7 @@ jobs:
           name: preview-build
           path: dist/
           retention-days: 7
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         with:
           path: dist
