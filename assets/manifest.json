@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "path": "assets/art/factory-fallback.png",
+      "source": "ImageGen; docs/assets.md",
+      "license": "Generated asset; separate from code MIT",
+      "status": "generated",
+      "sha256": "f49a0b2b32c69dd7f445f0638f2bb20e36955497924a4ecf0fb7df45de75f74b"
+    },
+    {
+      "path": "assets/art/population-header.png",
+      "source": "ImageGen; docs/assets.md",
+      "license": "Generated asset; separate from code MIT",
+      "status": "generated",
+      "sha256": "79f09126df33a198ca48388b70e4f2e2a0105f67556638ee4f5b1578a4e667f5"
+    },
+    {
+      "path": "assets/geo/china-outline.json",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "1db3030b11abea237d572ee3bf0c38204fb1818715e1af440bd362830abeb850",
+      "upstream": [
+        "admin1"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/geo/china.json",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "171ac065e4f8b0b3c405bcdbe48ef9cde144345cd8fc828dfd35c415c8c097a8",
+      "upstream": [
+        "admin1"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/geo/countries.json",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "043ee64d26d4e6f3874b86bb605f2a4192eadbdb49d69392ee53dd13e4d8fb07",
+      "upstream": [
+        "countries"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/geo/relief-metadata.json",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "ed2edf478326d12881b0a32228a90eec39698e6c6550a2390a2d086b5ddd028f",
+      "upstream": [
+        "relief",
+        "land"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/models/factory-campus.glb",
+      "source": "src/screens/factory/model.js",
+      "license": "MIT",
+      "status": "original",
+      "sha256": "a2c4f8fdc87cd0ffc75d69c06b24ce6f0a502c67e81986f4611eb6ddc1043a40"
+    },
+    {
+      "path": "assets/previews/factory.webp",
+      "source": "Recorded from project page",
+      "license": "Composite; underlying asset restrictions apply",
+      "status": "composite",
+      "sha256": "3179a5427343484f99da16311b49b06dda8a31629312dc1d03b3f93a32d15007"
+    },
+    {
+      "path": "assets/previews/inspection.webp",
+      "source": "Recorded from project page",
+      "license": "Composite; underlying asset restrictions apply",
+      "status": "composite",
+      "sha256": "88c5e105d1bb9450e0624dcad0f9ad30af1b31c71388afe8c510e8604c54de75"
+    },
+    {
+      "path": "assets/previews/population.webp",
+      "source": "Recorded from project page",
+      "license": "Composite; underlying asset restrictions apply",
+      "status": "composite",
+      "sha256": "db2b94d1c4c41bf538394bbb685cd30298ccc4ffe30cf93549a8e697b62560c8"
+    },
+    {
+      "path": "assets/previews/wind.webp",
+      "source": "Recorded from project page",
+      "license": "Composite; underlying asset restrictions apply",
+      "status": "composite",
+      "sha256": "25f4915fbc001090a40fea840d2a8686394f789662a454b3366b7b0154bd2923"
+    },
+    {
+      "path": "assets/textures/earth-day.jpg",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "ec404d1a0cf0014b849c20bf594c43a87a27d01898e7594cc107ea998eb00098",
+      "upstream": [
+        "day",
+        "land"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/textures/earth-night.png",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "0db81abe6eaf1e9977226b8a74417db16c6a12d9d2e55e5c6175d98d20260d44",
+      "upstream": [
+        "places",
+        "land"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/textures/earth-normal.jpg",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "c0c293d59a28abfd2d516d80d2bf9f592274a1896e73f71ad073345a5f0a4d9b",
+      "upstream": [
+        "relief"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/textures/factory-grid.png",
+      "source": "Original mathematical texture; scripts/prepare_assets.py",
+      "license": "MIT",
+      "status": "original",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "sha256": "2807b9a28eec8a46533ae30ff7faa46dbdac6aa3c2215c96095a37ca2178dea8"
+    },
+    {
+      "path": "assets/textures/relief.png",
+      "source": "Natural Earth; config/asset-sources.json",
+      "license": "Public domain",
+      "status": "verified",
+      "sha256": "e71b2a61ee1779c24af681351435b5e4312d4017f0e160f69e8f0b363c7a227c",
+      "upstream": [
+        "relief",
+        "land"
+      ],
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true,
+      "generator": "scripts/prepare_assets.py"
+    },
+    {
+      "path": "assets/vendor/d3.min.js",
+      "source": "https://github.com/d3/d3/tree/v7.9.0",
+      "license": "ISC",
+      "status": "verified",
+      "sha256": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539"
+    },
+    {
+      "path": "assets/vendor/three.min.js",
+      "source": "https://github.com/mrdoob/three.js/tree/r160",
+      "license": "MIT",
+      "status": "verified",
+      "sha256": "170c6789f43217c96b3170f4b42fafe135de7f7cd48497a4218f9757ee1d49fa"
+    },
+    {
+      "path": "assets/previews/agriculture.webp",
+      "source": "Actual page capture of owner-authorized Astra adaptation; docs/astra-cases.md",
+      "license": "Composite; owner-authorized generated decoration and MIT code",
+      "status": "composite",
+      "sha256": "e2aceee2dea1bc7c96b81522272bbc10fa118900f4dbef07f0ea17ff89109c6d"
+    },
+    {
+      "path": "assets/previews/industry.webp",
+      "source": "Actual page capture of owner-authorized Astra adaptation; docs/astra-cases.md",
+      "license": "Composite; owner-authorized generated decoration and MIT code",
+      "status": "composite",
+      "sha256": "78e7375a407fb67bd1f77c7eeb8ee5b03485e4c761c40431d8add40ab102205c"
+    },
+    {
+      "path": "assets/previews/park.webp",
+      "source": "Actual page capture of owner-authorized Astra adaptation; docs/astra-cases.md",
+      "license": "Composite; owner-authorized generated decoration and MIT code",
+      "status": "composite",
+      "sha256": "5753939c1793d121d53fabd0c71fa73a293443b9240edefc6e3237ae853b92a3"
+    },
+    {
+      "path": "assets/art/astra/agriculture-header.png",
+      "source": "Owner-authorized project-generated decoration; big-screen-astra@d20e80789dee708faff031df840d03d2af8efd72; docs/licensing/astra-owner-permission.txt",
+      "license": "Owner-authorized generated asset; separate from code MIT",
+      "status": "generated",
+      "sha256": "74f567c684cbfa84d79a9913c86e2251084bfae9729a21a0c24ff6e8ca36e19d"
+    },
+    {
+      "path": "assets/art/astra/industry-header.png",
+      "source": "Owner-authorized project-generated decoration; big-screen-astra@d20e80789dee708faff031df840d03d2af8efd72; docs/licensing/astra-owner-permission.txt",
+      "license": "Owner-authorized generated asset; separate from code MIT",
+      "status": "generated",
+      "sha256": "9137f49424e2c231d16cbdece2268bf412631f58e88c1cda370dd5a125d9710a"
+    },
+    {
+      "path": "assets/art/astra/park-header.png",
+      "source": "Owner-authorized project-generated decoration; big-screen-astra@d20e80789dee708faff031df840d03d2af8efd72; docs/licensing/astra-owner-permission.txt",
+      "license": "Owner-authorized generated asset; separate from code MIT",
+      "status": "generated",
+      "sha256": "6756cb3cc14b1961932955543e6ec83b03ebd593c55dfcb166ac4dac9789ffdb"
+    }
+  ]
+}

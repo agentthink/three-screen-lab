@@ -1,0 +1,130 @@
+/* SPDX-License-Identifier: MIT */
+:root {
+  --bg: #11171e;
+  --panel: #1a222b;
+  --line: #a8b7ca20;
+  --accent: #eab36d;
+  --secondary: #81c8b2;
+  --text: #e7eaed;
+  --muted: #95a3af;
+  --dim: #566775;
+  --radius: 5px;
+}
+.ob-header {
+  border-top: 2px solid #c4955c55;
+  margin-top: 3px;
+  background: linear-gradient(105deg, #27272370, transparent 42%);
+}
+.ob-brand-mark {
+  border-radius: 3px;
+  transform: rotate(-3deg);
+}
+.ob-brand-mark .ob-icon {
+  transform: rotate(3deg);
+}
+.ob-brand strong {
+  letter-spacing: 1px;
+}
+.ob-title h1 {
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: 2px;
+}
+.ob-title h1:after {
+  content: ' /';
+  color: var(--accent);
+  font-weight: 300;
+}
+.ob-metric {
+  background: linear-gradient(110deg, #202831, #1b232b);
+  border-left: 2px solid #a2794e77;
+}
+.ob-metric-label i {
+  color: var(--accent);
+}
+.ob-metric:after {
+  border-radius: 0;
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
+.ob-panel {
+  background: linear-gradient(135deg, #202932b0, #19222c);
+}
+.ob-panel:after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  width: 27px;
+  height: 2px;
+  background: #be97625c;
+}
+.ob-stage {
+  background: radial-gradient(ellipse at 50% 55%, #7d71561a, transparent 70%), #141c25;
+}
+.ob-production-track {
+  height: 7px;
+  background: #ffffff0a;
+  border: 1px solid #ffffff08;
+  position: relative;
+  margin: 15px 0 2px;
+}
+.ob-production-track i {
+  height: 100%;
+  display: block;
+  background: linear-gradient(90deg, #a87943, var(--accent));
+  transition: width 0.4s;
+}
+.ob-production-track:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 8px, #11171e77 8px 10px);
+}
+.ob-scene-pin,
+.ob-object {
+  border-radius: 2px;
+}
+.ob-tabs,
+.ob-tab,
+.ob-action {
+  border-radius: 3px;
+}
+.ob-left .ob-panel:nth-child(2) .ob-ring circle:last-child {
+  stroke: #a58e6b;
+}
+.ob-panel-heading > span {
+  letter-spacing: 1.4px;
+}
+.ob-right .ob-panel:last-child .ob-panel-heading {
+  margin-bottom: 11px;
+}
+.ob-right .ob-panel:last-child .ob-task {
+  padding: 10px 0;
+}
+.ob-brand small {
+  font-size: 8px;
+}
+.ob-panel .ob-large {
+  margin-bottom: 12px;
+}
+@media (max-width: 650px) {
+  .ob-title h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+  .ob-brand small {
+    font-size: 6px;
+  }
+  .ob-production-track {
+    margin-top: 18px;
+  }
+}
+
+.ob-left .ob-panel:first-child .ob-note,
+.ob-right .ob-panel:nth-child(2) .ob-note {
+  margin-top: 4px;
+}
+.ob-right .ob-panel:last-child .ob-task {
+  padding: 6px 0;
+}

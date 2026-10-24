@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>智慧工厂可视化大屏</title>
+    <style>
+      /*__FACTORY_CSS__*/
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" class="symbol-sheet" aria-hidden="true">
+      <defs>
+        <filter id="factory-blue-grade" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values=".88 0 0 0 .015 0 .98 0 0 .015 0 0 1.08 0 .025 0 0 0 1 0"
+          />
+        </filter>
+        <linearGradient id="icon-metal" x1="0" x2="1" y1="0" y2="1">
+          <stop stop-color="#d7f3ff" />
+          <stop offset=".55" stop-color="#83b9d1" />
+          <stop offset="1" stop-color="#40768e" />
+        </linearGradient>
+        <symbol id="f-expand" viewBox="0 0 20 20">
+          <path d="M7 3H3v4m10-4h4v4M3 13v4h4m6 0h4v-4M3 7l5-5m9 11-5 5" />
+        </symbol>
+        <symbol id="f-stone" viewBox="0 0 40 40">
+          <path d="M10 13h20v20H10z" fill="url(#icon-metal)" stroke="#90c5d9" />
+          <path d="M10 11h20v4H10z" fill="#fd9d59" />
+          <path d="M12 23q9 5 16 0M13 27h14" stroke="#245d78" fill="none" />
+        </symbol>
+        <symbol id="f-sand" viewBox="0 0 40 40">
+          <path d="m6 32 9-16 9 16Z" fill="url(#icon-metal)" />
+          <path d="M29 11v16m-3-19h6m-6 20h6" stroke="#ff9958" stroke-width="2.7" />
+          <path d="m26 28 3 5 4-5" fill="#d7eef3" />
+        </symbol>
+        <symbol id="f-ore" viewBox="0 0 40 40">
+          <path d="m6 31 6-9h8l5 9Z" fill="#a3d6e9" />
+          <path d="m22 30 4-7h6l5 7Z" fill="#659cb4" />
+          <path d="m13 21 4-7h8l4 7Z" fill="#ff9550" />
+        </symbol>
+        <symbol id="f-steel" viewBox="0 0 40 40">
+          <path d="m6 14 14-4h13l-13 8H6Zm3 18 13-5h12l-12 8H9Z" fill="url(#icon-metal)" />
+          <path d="m18 17 6-2-1 15-6 2Z" fill="#8ebacc" />
+          <path d="m12 19 9-3v3l-6 3-1 7-4 2Z" fill="#ff9a53" />
+        </symbol>
+        <symbol id="f-pipe" viewBox="0 0 40 40">
+          <path d="M5 8h13v11h15v14H22V22H5Z" fill="url(#icon-metal)" stroke="#709db5" />
+          <path d="M4 7h16m0 27h15" stroke="#ff9f58" stroke-width="2.5" />
+          <path d="M10 11v6h10" fill="none" stroke="#d4eff5" stroke-width="2" />
+        </symbol>
+        <symbol id="f-train" viewBox="0 0 40 40">
+          <rect x="9" y="6" width="23" height="25" rx="6" fill="url(#icon-metal)" />
+          <path d="M14 13h14v8H14z" fill="#366680" />
+          <path d="M15 9h12m-14 18h3m10 0h3" stroke="#d2f1ff" stroke-width="2" />
+          <path d="m13 32-5 5m20-5 5 5M10 36h21" fill="none" stroke="#f89a4d" stroke-width="2" />
+        </symbol>
+        <symbol id="f-road" viewBox="0 0 40 40">
+          <path d="m8 6-6 31h12l4-31Zm15 0 4 31h11L31 6Z" fill="url(#icon-metal)" />
+          <path d="M20 10v6m0 5v6m0 5v5" stroke="#ff9a51" stroke-width="3" />
+        </symbol>
+        <symbol id="f-ship" viewBox="0 0 40 40">
+          <path d="m5 24 14-7 16 7-5 10H11Z" fill="url(#icon-metal)" />
+          <path d="M13 19V9h15v10M19 9V5h5v4" fill="#94c7df" />
+          <path d="M9 23 19 19l12 4M19 19v12" stroke="#4d87a0" fill="none" />
+          <path
+            d="M2 36q4-5 9 0 5-5 10 0 5-5 9 0 5-5 9 0"
+            stroke="#ff9b50"
+            stroke-width="2"
+            fill="none"
+          />
+        </symbol>
+        <symbol id="f-warehouse" viewBox="0 0 40 40">
+          <path d="M7 20 20 9l13 11v15H7Z" fill="url(#icon-metal)" />
+          <path d="M4 21 20 7l16 14" stroke="#ff9955" stroke-width="3" fill="none" />
+          <path d="M14 22h13v13H14z" fill="#39788f" />
+          <path d="M16 26h9m-9 4h9" stroke="#c6e6ef" stroke-width="1.4" />
+        </symbol>
+        <symbol id="f-close" viewBox="0 0 20 20"><path d="m4 4 12 12M4 16 16 4" /></symbol>
+        <symbol id="f-download" viewBox="0 0 20 20">
+          <path d="M10 2v11m-4-4 4 4 4-4M3 13v5h14v-5" />
+        </symbol>
+        <symbol id="f-refresh" viewBox="0 0 20 20">
+          <path d="M16 5A7 7 0 0 0 4 5L2 8m0-5v5h5m-3 7a7 7 0 0 0 12 0l2-3m0 5v-5h-5" />
+        </symbol>
+      </defs>
+    </svg>
+    <div id="factory-viewport">
+      <main id="factory-screen" aria-label="智慧工厂可视化大屏">
+        <div class="ambient-light"></div>
+        <div id="factory-night-wash" aria-hidden="true"></div>
+        <div class="night-sweep-beam" aria-hidden="true"></div>
+        <canvas id="ambient-particles" aria-hidden="true"></canvas>
+        <header class="factory-header">
+          <svg viewBox="0 0 2048 87" aria-hidden="true">
+            <defs>
+              <linearGradient id="head-grad" x2="0" y2="1">
+                <stop stop-color="#2c83b5" stop-opacity=".55" />
+                <stop offset="1" stop-color="#246a8e" stop-opacity=".05" />
+              </linearGradient>
+            </defs>
+            <path d="M0 0h2048v74H0Z" fill="url(#head-grad)" />
+            <path d="M235 0h145l-70 73ZM1810 0h-145l70 73Z" fill="#94c9df" opacity=".13" />
+            <path
+              d="M0 74h755l-61-65H542m963 65h-258l67-65h168M756 74l8 9h479l8-9"
+              fill="none"
+              stroke="#a7daee"
+              stroke-opacity=".56"
+              stroke-width="2"
+            />
+            <path
+              d="M615 9h22m737 0h22M751 74l10 9h8m475-9-8 9h-8"
+              fill="none"
+              stroke="#e0f3ff"
+              stroke-width="2"
+            />
+            <path d="M776 75h450M850 79h355" stroke="#a9e1f2" stroke-opacity=".25" />
+            <path d="M0 73H2048" stroke="#9bdcf1" stroke-opacity=".28" />
+          </svg>
+          <div class="header-ruler"></div>
+          <button class="screen-title" id="screen-title" aria-label="打开大屏控制菜单">
+            智慧工厂可视化大屏</button
+          ><button
+            class="theme-switch"
+            id="factory-theme-toggle"
+            data-theme-switch
+            aria-label="切换夜色模式"
+            aria-pressed="false"
+          >
+            <span class="theme-mode-icon" aria-hidden="true">☾</span><span>夜色模式</span
+            ><i></i></button
+          ><button class="header-expand" id="fullscreen-button" aria-label="全屏显示">
+            <svg class="icon"><use href="#f-expand" /></svg>
+          </button>
+        </header>
+        <nav class="control-menu" id="control-menu" aria-label="大屏控制">
+          <button id="menu-fullscreen">全屏显示</button
+          ><button id="menu-refresh">刷新演示数据</button
+          ><button id="menu-export">导出订单数据</button><button id="menu-about">平台信息</button>
+        </nav>
+        <section class="factory-panel raw-materials" aria-label="原材料日购进及日消耗">
+          <div class="section-heading">
+            <h2>原材料日购进＆日消耗</h2>
+            <button class="expand" data-expand="materials" aria-label="展开原材料统计">
+              <svg class="icon"><use href="#f-expand" /></svg>
+            </button>
+          </div>
+          <div class="panel-surface materials-grid" id="materials-grid"></div>
+        </section>
+        <section class="panel-surface material-donut" aria-label="原材料占比">
+          <div class="material-tabs" role="group" aria-label="原材料统计模式">
+            <button class="active" data-material-mode="purchase" aria-pressed="true">
+              <i></i>日购进</button
+            ><button data-material-mode="consume" aria-pressed="false">日消耗</button
+            ><span class="dashed-decoration"></span>
+          </div>
+          <svg
+            id="material-chart"
+            class="chart"
+            viewBox="0 0 440 190"
+            aria-label="原材料日购进占比"
+            role="img"
+          ></svg>
+          <div class="ghost-ring"></div>
+        </section>
+        <section class="factory-panel shift-production">
+          <div class="section-heading">
+            <h2>班次产量统计</h2>
+            <button class="expand" data-expand="production" aria-label="展开班次产量">
+              <svg class="icon"><use href="#f-expand" /></svg>
+            </button>
+          </div>
+          <div class="panel-surface shift-surface">
+            <div class="shift-totals" id="shift-totals"></div>
+            <div class="chart-legend shift-legend" aria-label="班次图例">
+              <button data-series="shift-a" aria-pressed="true">
+                <i style="--color: #51baf0"></i>甲班</button
+              ><button data-series="shift-b" aria-pressed="true">
+                <i style="--color: #c7dfef"></i>乙班
+              </button>
+            </div>
+            <svg
+              id="production-chart"
+              class="chart"
+              viewBox="0 0 440 202"
+              role="img"
+              aria-label="班次产量趋势"
+            ></svg>
+          </div>
+        </section>
+        <section class="factory-kpis" aria-label="工厂整体指标">
+          <button data-kpi="area">
+            <span>总面积</span><strong>15,700 <small>m²</small></strong></button
+          ><button data-kpi="target">
+            <span>目标出货数</span><strong>2,316 <small>万吨</small></strong></button
+          ><button data-kpi="current">
+            <span>当前出货数</span><strong>1,781 <small>万吨</small></strong>
+          </button>
+        </section>
+        <section class="order-panel" aria-label="实时订单数据">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i
+          ><i class="corner br"></i
+          ><button class="order-title" data-expand="orders">实时订单数据</button>
+          <div class="order-table-clip">
+            <table class="orders-table">
+              <colgroup>
+                <col style="width: 21%" />
+                <col style="width: 43%" />
+                <col style="width: 17%" />
+                <col style="width: 19%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>地区</th>
+                  <th>客户</th>
+                  <th>金额(w)</th>
+                  <th>状态</th>
+                </tr>
+              </thead>
+              <tbody id="order-rows"></tbody>
+            </table>
+            <span class="fake-scrollbar"></span>
+          </div>
+        </section>
+        <section id="factory-scene" class="factory-scene" aria-label="厂区数字孪生模型">
+          <div class="factory-halo"></div>
+          <div id="factory-model-host" class="factory-model-host">
+            <img
+              id="factory-model"
+              class="factory-model-fallback"
+              src="/*__FACTORY_MODEL__*/"
+              alt="智慧工厂厂区预览"
+              draggable="false"
+            />
+          </div>
+          <div class="twin-status"><i></i><span>3D 厂区</span></div>
+          <div class="factory-model-tools" role="group" aria-label="厂区三维视图控制">
+            <button id="model-zoom-out" aria-label="缩小三维厂区">−</button
+            ><button id="model-zoom-in" aria-label="放大三维厂区">＋</button
+            ><button id="model-reset" aria-label="复位三维厂区">复位</button
+            ><button id="model-orbit" aria-label="自动环绕厂区" aria-pressed="false">环绕</button
+            ><button id="model-expand" aria-label="展开三维厂区">全景</button>
+          </div>
+          <div class="factory-model-hint">拖动旋转 · 滚轮缩放 · 双击复位</div>
+          <div class="twin-zone-nav" role="group" aria-label="厂区设备">
+            <button data-zone="cooling">冷却塔</button
+            ><button data-zone="production">生产车间</button
+            ><button data-zone="storage">储运中心</button>
+          </div>
+        </section>
+        <button class="running-gauge" id="running-gauge" aria-label="查看全流程运行指数89.4分">
+          <svg id="gauge-chart" viewBox="0 0 240 240" aria-hidden="true"></svg
+          ><span class="gauge-copy"
+            ><span
+              ><strong>89<span>.4</span></strong
+              ><small>分</small></span
+            ><b>全流程运行指数</b></span
+          >
+        </button>
+        <section class="equipment-panel">
+          <div class="equipment-heading">
+            <span class="orange-arrow"></span>
+            <h2>设备运行统计</h2>
+            <button class="expand" data-expand="equipment" aria-label="展开设备运行统计">
+              <svg class="icon"><use href="#f-expand" /></svg>
+            </button>
+          </div>
+          <div class="panel-surface equipment-surface">
+            <button class="equipment-total" id="equipment-total">
+              <span>设备总数</span><strong>142,398<small>台</small></strong>
+            </button>
+            <div class="equipment-bar" aria-label="开启设备65.7%，关闭设备24.4%，故障设备9.9%">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="equipment-legend">
+              <button data-equipment-filter="开启"><i class="blue"></i>开启设备数</button
+              ><button data-equipment-filter="关闭"><i class="pale"></i>关闭设备数</button
+              ><button data-equipment-filter="故障"><i class="orange"></i>故障设备数</button>
+            </div>
+            <table class="equipment-table" aria-label="设备运行数量">
+              <tbody id="equipment-rows"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="factory-panel transport-panel">
+          <div class="section-heading">
+            <h2>本月各路运输出厂量统计</h2>
+            <button class="expand" data-expand="transport" aria-label="展开运输统计">
+              <svg class="icon"><use href="#f-expand" /></svg>
+            </button>
+          </div>
+          <div class="panel-surface transport-grid" id="transport-grid"></div>
+        </section>
+        <section class="factory-panel storage-panel">
+          <div class="section-heading">
+            <h2>当前仓储分配情况</h2>
+            <button class="expand" data-expand="storage" aria-label="展开仓储分配">
+              <svg class="icon"><use href="#f-expand" /></svg>
+            </button>
+          </div>
+          <div class="panel-surface storage-surface">
+            <button class="storage-summary" id="storage-summary">
+              <span class="storage-icon"
+                ><svg class="icon"><use href="#f-warehouse" /></svg></span
+              ><span class="storage-value"><strong>96.7</strong><small>万吨</small></span
+              ><span class="storage-label">当前仓储容量</span></button
+            ><svg
+              id="storage-chart"
+              class="chart"
+              viewBox="0 0 290 223"
+              role="img"
+              aria-label="A区到G区仓储分配"
+            ></svg>
+          </div>
+        </section>
+        <section class="factory-panel sales-panel">
+          <div class="section-heading">
+            <h2>月销售额统计</h2>
+            <button class="expand" data-expand="sales" aria-label="展开月销售额">
+              <svg class="icon"><use href="#f-expand" /></svg>
+            </button>
+          </div>
+          <div class="panel-surface sales-surface">
+            <div class="chart-legend sales-legend" aria-label="销售图例">
+              <button data-series="domestic" aria-pressed="true">
+                <i style="--color: #51baf0"></i>国内份额</button
+              ><button data-series="export" aria-pressed="true">
+                <i style="--color: #f6a456"></i>出口份额
+              </button>
+            </div>
+            <svg
+              id="sales-chart"
+              class="chart"
+              viewBox="0 0 440 211"
+              role="img"
+              aria-label="一月至六月国内与出口销售额"
+            ></svg>
+          </div>
+        </section>
+        <div class="factory-tooltip" id="factory-tooltip" role="tooltip"></div>
+        <div class="factory-toast" id="factory-toast" role="status" aria-live="polite"></div>
+        <div class="dialog-backdrop" id="dialog-backdrop">
+          <section
+            class="factory-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
+          >
+            <header class="dialog-header">
+              <h2 id="dialog-title"></h2>
+              <button id="dialog-close" aria-label="关闭弹窗">
+                <svg class="icon"><use href="#f-close" /></svg>
+              </button>
+            </header>
+            <div id="dialog-body" class="dialog-body"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="orientation-note">横屏观看，沉浸式体验智慧工厂</div>
+    <script>
+      /*__D3__*/
+    </script>
+    <script>
+      /*__THREE__*/
+    </script>
+    <script>
+      window.FACTORY_GRID_MASK = '/*__FACTORY_GRID_MASK__*/'; /*__FACTORY_MODEL_JS__*/
+    </script>
+    <script>
+      /*__FACTORY_JS__*/
+    </script>
+  </body>
+</html>

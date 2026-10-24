@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-20",
+  "provider": "Natural Earth / NACIS",
+  "sources": [
+    {
+      "id": "admin1",
+      "url": "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_1_states_provinces.zip",
+      "bytes": 14909524,
+      "sha256": "efc59726337323058f9446210adc96673179cd344e053666ee3d28cb58ba2b05",
+      "version": "5.1.1",
+      "sourcePage": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/",
+      "license": "Public domain",
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true
+    },
+    {
+      "id": "countries",
+      "url": "https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip",
+      "bytes": 799734,
+      "sha256": "5fed433373581fa648920435f937d95f2d3c0200e067409c6478dcdf1b853139",
+      "version": "5.1.1",
+      "sourcePage": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/",
+      "license": "Public domain",
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true
+    },
+    {
+      "id": "land",
+      "url": "https://naciscdn.org/naturalearth/50m/physical/ne_50m_land.zip",
+      "bytes": 457183,
+      "sha256": "0b8e670cf80dce9cbebe2a193bc44ba5602758c22e1fa603980553646d7ff162",
+      "version": "4.1.0",
+      "sourcePage": "https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-land/",
+      "license": "Public domain",
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true
+    },
+    {
+      "id": "places",
+      "url": "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_populated_places_simple.zip",
+      "bytes": 652145,
+      "sha256": "2963ee08f7743f13f37d5243acd77a2f7a510e26a36c7e04b920f1b381f2b251",
+      "version": "5.1.2",
+      "sourcePage": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/",
+      "license": "Public domain",
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true
+    },
+    {
+      "id": "relief",
+      "url": "https://naciscdn.org/naturalearth/50m/raster/SR_50M.zip",
+      "bytes": 11380369,
+      "sha256": "ff810f5f2747463fd8ffa612b23e5f5e5d593a345218976872b6749610976ab7",
+      "version": "2.0.0 (archive VERSION; download page advertises 3.2.0)",
+      "sourcePage": "https://www.naturalearthdata.com/downloads/50m-raster-data/50m-shaded-relief/",
+      "license": "Public domain",
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true
+    },
+    {
+      "id": "day",
+      "url": "https://naciscdn.org/naturalearth/50m/raster/NE1_50M_SR.zip",
+      "bytes": 40889620,
+      "sha256": "ae930744c0cf3d10e73c292726b74c81a40490a75829f8299dec9069e5d0e934",
+      "version": "NE1_50M_SR (archive has no version; pinned by SHA-256)",
+      "sourcePage": "https://www.naturalearthdata.com/downloads/50m-raster-data/50m-natural-earth-1/",
+      "license": "Public domain",
+      "licenseEvidence": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "commercialUse": true,
+      "redistribution": true,
+      "modification": true
+    }
+  ]
+}

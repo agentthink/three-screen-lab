@@ -1,0 +1,28 @@
+name: Bug report / 问题反馈
+description: Reproducible rendering, build or interaction problem
+title: '[Bug] '
+labels: [bug]
+body:
+  - type: dropdown
+    id: screen
+    attributes:
+      label: Affected screen / 页面
+      options: [Home, Wind, Factory, Population, Inspection, Build or CI]
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and expected result / 复现步骤与预期
+      description: Include the page URL or commit, clicks, and what happened instead.
+    validations: { required: true }
+  - type: textarea
+    id: environment
+    attributes:
+      label: Browser, viewport and GPU / 环境
+      placeholder: Chrome version, OS, 1280×720, GPU if known
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshot or relevant console error / 截图与报错
+      description: Remove private data and credentials before posting.

@@ -1,0 +1,35 @@
+<article
+  class="screen-card"
+  data-category="{{category}}"
+  data-page="{{entry}}"
+  data-title="{{title}}"
+  data-width="{{width}}"
+  data-height="{{height}}"
+>
+  <div class="preview-wrap">
+    <img
+      src="{{image}}"
+      alt="{{title}}实际预览"
+      loading="lazy"
+      width="{{width}}"
+      height="{{height}}"
+    />
+    <div class="iframe-host"></div>
+    <div class="preview-top">
+      <span class="preview-index">{{index}} / {{label}}</span
+      ><button class="live-toggle" aria-pressed="false"><i></i>实时预览</button>
+    </div>
+    <a href="{{entry}}" class="preview-enter" aria-label="进入{{title}}"
+      ><span>进入大屏</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg
+    ></a>
+    <div class="preview-loading" role="status">正在启动实时场景<span></span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-heading">
+      <h3><a href="{{entry}}">{{title}}</a></h3>
+      <a class="card-open" href="{{entry}}" aria-label="打开{{title}}">↗</a>
+    </div>
+    <p>{{description}}</p>
+    <div class="card-meta">{{tags}}<b>{{width}} × {{height}}</b></div>
+  </div>
+</article>

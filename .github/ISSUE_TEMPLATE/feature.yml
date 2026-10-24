@@ -1,0 +1,15 @@
+name: Feature / 功能建议
+description: Propose a focused improvement
+title: '[Feature] '
+body:
+  - type: textarea
+    id: problem
+    attributes: { label: 'Problem and user / 解决谁的什么问题' }
+    validations: { required: true }
+  - type: textarea
+    id: outcome
+    attributes: { label: 'Desired behavior and acceptance / 预期效果与验收' }
+    validations: { required: true }
+  - type: textarea
+    id: contribution
+    attributes: { label: 'Alternatives, references and willingness to contribute / 补充' }

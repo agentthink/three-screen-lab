@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>AI智能巡检运营调度平台</title>
+    <style>
+      /*__SCREEN_CSS__*/
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute; overflow: hidden" aria-hidden="true">
+      <defs>
+        <symbol id="i-cube" viewBox="0 0 24 24">
+          <path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 0v20M3 7l9 5 9-5M7.5 4.5l9 5v5" />
+        </symbol>
+        <symbol id="i-chart" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M7 16v-4m5 4V7m5 9v-6M7 19h10" />
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="17" rx="2" />
+          <path d="M7 2v4m10-4v4M3 9h18M7 13h4m3 0h3M7 17h4" />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <path d="M4 8H1V2m1 6a10 10 0 1 1-.5 7M12 6v6l4 2" />
+        </symbol>
+        <symbol id="i-car" viewBox="0 0 24 24">
+          <path d="m4 10 2-6h12l2 6M3 11l1-1h16l1 1v8H3v-8Zm2 8v2m14-2v2M3 15h4m10 0h4M7 10h10" />
+        </symbol>
+        <symbol id="i-truck" viewBox="0 0 24 24">
+          <path d="M1 5h14v13H1V5Zm14 5h4l4 4v4h-8M6 5v4m14 1v4h3" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="18" r="3" />
+        </symbol>
+        <symbol id="i-bot" viewBox="0 0 24 24">
+          <rect x="4" y="7" width="16" height="12" rx="4" />
+          <path d="M12 3v4M2 11v5m20-5v5M8 19v2m8-2v2M8 15h8" />
+          <circle cx="8" cy="11" r="1" />
+          <circle cx="16" cy="11" r="1" />
+        </symbol>
+        <symbol id="i-crane" viewBox="0 0 24 24">
+          <path d="M3 17V9h9v8M8 9V3m0 3h7l4 7h3M1 19h20m-7-6v5m5-5v5" />
+          <circle cx="5" cy="19" r="2" />
+          <circle cx="16" cy="19" r="2" />
+        </symbol>
+        <symbol id="i-dog" viewBox="0 0 24 24">
+          <path d="m3 4 4 4h10l3-3 3 4-4 2v4h-3l-2-4H8l-2 4H3V9m2 6-2 5m14-5 3 5M8 8V5m4 6v4" />
+        </symbol>
+        <symbol id="i-boat" viewBox="0 0 24 24">
+          <path
+            d="M3 16 1 12l11-4 11 4-2 4M5 10V5h14v5M9 5V2h6v3M2 20q3-4 6 0 4-4 8 0 3-4 6 0M12 8v9"
+          />
+        </symbol>
+        <symbol id="i-drone" viewBox="0 0 24 24">
+          <circle cx="5" cy="5" r="4" />
+          <circle cx="19" cy="5" r="4" />
+          <circle cx="5" cy="19" r="4" />
+          <circle cx="19" cy="19" r="4" />
+          <path d="m5 5 14 14M5 19 19 5" />
+          <rect x="9" y="9" width="6" height="6" rx="2" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0Z" />
+          <circle cx="12" cy="9" r="2" />
+        </symbol>
+        <symbol id="i-battery" viewBox="0 0 24 24">
+          <rect x="5" y="4" width="14" height="18" rx="2" />
+          <path d="M9 1h6M8 16h8v3H8zM12 7l-2 5h4l-2 4" />
+        </symbol>
+        <symbol id="i-list" viewBox="0 0 24 24">
+          <rect x="3" y="2" width="18" height="20" rx="2" />
+          <path d="M7 7h2m3 0h5M7 12h2m3 0h5M7 17h2m3 0h5" />
+        </symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24">
+          <path
+            stroke-width="3.5"
+            stroke-linecap="square"
+            d="M3 3h1m5 0h1m5 0h1m5 0h1M3 9h1m5 0h1m5 0h1m5 0h1M3 15h1m5 0h1m5 0h1m5 0h1M3 21h1m5 0h1m5 0h1m5 0h1"
+          />
+        </symbol>
+        <symbol id="i-expand" viewBox="0 0 24 24">
+          <path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5" />
+        </symbol>
+        <symbol id="i-refresh" viewBox="0 0 24 24">
+          <path d="M20 7A9 9 0 0 0 4 6L2 9m0-6v6h6m-4 8a9 9 0 0 0 16 1l2-3m0 6v-6h-6" />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+          <path d="M12 2v13m-5-5 5 5 5-5M3 16v6h18v-6" />
+        </symbol>
+        <symbol id="i-hex" viewBox="0 0 24 24">
+          <path d="m12 2 9 5v10l-9 5-9-5V7Z" />
+          <path d="m8 12 3 3 5-6" />
+        </symbol>
+        <symbol id="car-model" viewBox="0 0 150 100">
+          <defs>
+            <linearGradient id="car-white" x2=".7" y2="1">
+              <stop stop-color="#f3fcff" />
+              <stop offset=".4" stop-color="#c0d1d8" />
+              <stop offset=".72" stop-color="#7b98b3" />
+              <stop offset="1" stop-color="#d8edf8" />
+            </linearGradient>
+            <linearGradient id="car-glass" x2=".8" y2="1">
+              <stop stop-color="#70b8db" />
+              <stop offset=".4" stop-color="#123e67" />
+              <stop offset="1" stop-color="#061d36" />
+            </linearGradient>
+            <linearGradient id="car-side" x2="1" y2="1">
+              <stop stop-color="#f3e9d5" />
+              <stop offset="1" stop-color="#8192a4" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="76" cy="80" rx="58" ry="9" fill="#001224" opacity=".75" />
+          <path
+            d="M19 66 38 39l30-13 48 7 18 25-4 18-32 10-71-6Z"
+            fill="url(#car-white)"
+            stroke="#7bafcc"
+            stroke-width="1.2"
+          />
+          <path
+            d="m42 41 28-11 30 6-13 27-58 1Z"
+            fill="url(#car-glass)"
+            stroke="#d1e5f1"
+            stroke-width="2"
+          />
+          <path
+            d="m103 38 12-1 14 22-27 7Z"
+            fill="url(#car-glass)"
+            stroke="#e0e6dd"
+            stroke-width="2"
+          />
+          <path d="m95 34-8 29 11 19 31-10 3-13-31 7Z" fill="url(#car-side)" stroke="#9aabb4" />
+          <path d="m105 67 23-5-1 11-22 6Z" fill="#647788" />
+          <path d="m23 66 63 3 10 14-69-6Z" fill="#547aab" />
+          <path d="m25 68 19 1-3 6-15-1Zm49 2 12 1 5 6-16-1Z" fill="#adf8ff" />
+          <path d="m47 71 23 1-1 6-24-2Z" fill="#061b38" />
+          <ellipse cx="43" cy="80" rx="8" ry="10" fill="#07101a" />
+          <ellipse cx="43" cy="80" rx="4" ry="6" fill="#6c899d" />
+          <ellipse cx="113" cy="77" rx="8" ry="10" fill="#07101a" />
+          <ellipse cx="113" cy="77" rx="4" ry="6" fill="#6c899d" />
+          <path d="m66 32 9-6 8 1 3 6Z" fill="#daeef9" />
+          <path d="m76 25 1-5h5l2 6Z" fill="#08b0e9" />
+          <path d="m92 45-8 17M31 60l51 1" stroke="#51b8e4" opacity=".5" />
+          <path d="m101 45-3 18 2 9m17-22 6 10" stroke="#758999" fill="none" />
+          <path d="m30 67 4-6 8-2" stroke="#e8f7ff" fill="none" />
+        </symbol>
+      </defs>
+    </svg>
+    <div id="viewport">
+      <main id="screen" aria-label="AI智能巡检运营调度平台">
+        <svg id="map" viewBox="0 0 1920 1040" aria-label="全国巡检运营地图"></svg>
+        <header class="header">
+          <h1>AI智能巡检运营调度平台</h1>
+          <div class="head-line"></div>
+          <div class="header-right">
+            <div class="clock">
+              <strong id="clock">15:37:36</strong><span id="date">2026 10 19</span>
+            </div>
+            <div class="weather"><span class="sun">☀</span><span>17°C</span></div>
+            <button
+              class="app-menu"
+              id="menu-toggle"
+              aria-label="打开控制菜单"
+              aria-expanded="false"
+            >
+              <svg class="icon"><use href="#i-grid" /></svg>
+            </button>
+          </div>
+        </header>
+        <nav class="menu-dropdown" id="menu" aria-label="大屏控制">
+          <button id="fullscreen">
+            <svg class="icon"><use href="#i-expand" /></svg>全屏显示</button
+          ><button id="refresh">
+            <svg class="icon"><use href="#i-refresh" /></svg>刷新演示数据</button
+          ><button id="export">
+            <svg class="icon"><use href="#i-download" /></svg>导出告警数据</button
+          ><button id="about">
+            <svg class="icon"><use href="#i-list" /></svg>平台信息
+          </button>
+        </nav>
+        <section class="panel left overview">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-cube" /></svg>
+            <h2>累计巡检统计</h2>
+          </div>
+          <div class="panel-content">
+            <div class="metrics">
+              <button class="metric" data-summary="mileage">
+                <span class="metric-num">56797<small>公里</small></span
+                ><span class="holo-disc"></span><span class="metric-label">巡检里程</span></button
+              ><button class="metric" data-summary="events">
+                <span class="metric-num">56797<small>件</small></span
+                ><span class="holo-disc"></span><span class="metric-label">巡检事件</span></button
+              ><button class="metric" data-summary="vehicles">
+                <span class="metric-num">56797<small>辆</small></span
+                ><span class="holo-disc"></span><span class="metric-label">巡检车辆</span>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="panel left events">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-chart" /></svg>
+            <h2>巡检事件类型</h2>
+          </div>
+          <div class="panel-content">
+            <div class="donut-layout">
+              <svg
+                class="donut"
+                id="donut"
+                viewBox="0 0 184 175"
+                role="img"
+                aria-label="巡检事件分类占比"
+              ></svg>
+              <div class="category-list" id="categories"></div>
+            </div>
+          </div>
+        </section>
+        <section class="panel left comparison">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-pin" /></svg>
+            <h2>巡检里程与事件对比</h2>
+            <div class="periods" role="group" aria-label="统计时间范围">
+              <button data-period="7" class="active" aria-pressed="true">近七日</button
+              ><button data-period="30" aria-pressed="false">近一月</button
+              ><button data-period="365" aria-pressed="false">近一年</button>
+            </div>
+          </div>
+          <div class="panel-content">
+            <svg
+              class="chart"
+              id="comparison-chart"
+              viewBox="0 0 413 185"
+              role="img"
+              aria-label="最近七日巡检里程与事件对比图"
+            ></svg>
+          </div>
+        </section>
+        <section class="panel left coverage">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-pin" /></svg>
+            <h2>覆盖区域统计</h2>
+            <button class="more" data-more="regions">更多 <b>›</b></button>
+          </div>
+          <div class="panel-content">
+            <div class="coverage-grid">
+              <button class="region" data-region="北京市">
+                <span class="region-badge">5<small style="font-size: 12px">站</small></span>
+                <h3>
+                  <svg class="icon"><use href="#i-pin" /></svg>北京
+                </h3>
+                <p>
+                  <svg class="icon"><use href="#i-truck" /></svg>车辆<strong>300</strong> 辆
+                </p>
+                <p>
+                  <svg class="icon"><use href="#i-clock" /></svg>里程<strong>30000</strong> 公里
+                </p></button
+              ><button class="region" data-region="广西壮族自治区">
+                <span class="region-badge">1<small style="font-size: 12px">站</small></span>
+                <h3>
+                  <svg class="icon"><use href="#i-pin" /></svg>广西
+                </h3>
+                <p>
+                  <svg class="icon"><use href="#i-truck" /></svg>车辆<strong>300</strong> 辆
+                </p>
+                <p>
+                  <svg class="icon"><use href="#i-clock" /></svg>里程<strong>30000</strong> 公里
+                </p>
+              </button>
+            </div>
+          </div>
+        </section>
+        <div class="kpis">
+          <button class="kpi" data-summary="today-events">
+            <span class="kpi-label"
+              ><svg class="icon"><use href="#i-calendar" /></svg>今日巡检事件</span
+            ><span class="kpi-value" id="kpi-events"
+              ><span class="digit">2</span><span class="digit">1</span><span class="digit">6</span
+              ><small>件</small></span
+            ></button
+          ><button class="kpi" data-summary="today-mileage">
+            <span class="kpi-label"
+              ><svg class="icon"><use href="#i-clock" /></svg>今日巡检里程</span
+            ><span class="kpi-value" id="kpi-mileage"
+              ><span class="digit">2</span><span class="digit">1</span><span class="digit">1</span
+              ><small>公里</small></span
+            ></button
+          ><button class="kpi" data-summary="today-vehicles">
+            <span class="kpi-label"
+              ><svg class="icon"><use href="#i-truck" /></svg>今日巡检车辆</span
+            ><span class="kpi-value" id="kpi-vehicles"
+              ><span class="digit">2</span><span class="digit">1</span><span class="digit">0</span
+              ><small>辆</small></span
+            >
+          </button>
+        </div>
+        <aside class="map-tip" id="map-detail" aria-live="polite"></aside>
+        <section class="panel right type-analysis">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-list" /></svg>
+            <h2>巡检车型分析</h2>
+          </div>
+          <div class="panel-content">
+            <svg
+              class="chart"
+              id="type-chart"
+              viewBox="0 0 407 183"
+              role="img"
+              aria-label="巡检车型数量与里程分析"
+            ></svg>
+          </div>
+        </section>
+        <section class="panel right fleet">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-truck" /></svg>
+            <h2>车辆统计</h2>
+            <button class="more" data-more="fleet">更多 <b>›</b></button>
+          </div>
+          <div class="panel-content"><div class="fleet-grid" id="fleet-grid"></div></div>
+        </section>
+        <section
+          class="panel right vehicle-panel"
+          id="vehicle-1"
+          aria-label="京ACE6503车辆状态"
+        ></section>
+        <section
+          class="panel right vehicle-panel second"
+          id="vehicle-2"
+          aria-label="京ACE6505车辆状态"
+        ></section>
+        <section class="panel events-table">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-list" /></svg>
+            <h2>事件告警列表</h2>
+            <button class="more" data-more="events">更多 <b>›</b></button>
+          </div>
+          <div class="panel-content">
+            <table class="data-table" aria-label="事件告警">
+              <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 21%" />
+                <col style="width: 36%" />
+                <col style="width: 21%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>事件类型</th>
+                  <th>事件名称</th>
+                  <th>上报时间</th>
+                  <th>处理状态</th>
+                </tr>
+              </thead>
+              <tbody id="event-rows"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel vehicle-table">
+          <div class="panel-head">
+            <svg class="icon"><use href="#i-truck" /></svg>
+            <h2>车辆告警列表</h2>
+            <button class="more" data-more="alerts">更多 <b>›</b></button>
+          </div>
+          <div class="panel-content">
+            <table class="data-table" aria-label="车辆告警">
+              <colgroup>
+                <col style="width: 23%" />
+                <col style="width: 29%" />
+                <col style="width: 24%" />
+                <col style="width: 24%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>车辆类型</th>
+                  <th>车牌号</th>
+                  <th>告警类型</th>
+                  <th>处理状态</th>
+                </tr>
+              </thead>
+              <tbody id="alert-rows"></tbody>
+            </table>
+          </div>
+        </section>
+        <div class="tooltip" id="tooltip" role="tooltip"></div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <div class="modal-backdrop" id="modal-backdrop">
+          <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-head">
+              <h2 id="modal-title"></h2>
+              <button class="modal-close" id="modal-close" aria-label="关闭弹窗">×</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="mobile-hint">横屏查看大屏，获得完整体验</div>
+    <script>
+      /*__D3__*/
+    </script>
+    <script>
+      /*__MAP_DEPTH__*/
+    </script>
+    <script>
+      /*__SCREEN_JS__*/
+    </script>
+  </body>
+</html>

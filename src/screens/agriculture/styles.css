@@ -1,0 +1,64 @@
+/* SPDX-License-Identifier: MIT */
+:root {
+  --bg: #0c1916;
+  --panel: #13251f;
+  --line: #a9cbb51d;
+  --accent: #c1d59d;
+  --secondary: #82c9ad;
+  --text: #e8f0e6;
+  --muted: #96afa1;
+  --dim: #567164;
+  --radius: 15px;
+}
+.ob-header {
+  background: radial-gradient(ellipse at 50% -30%, #8baf5224, transparent 68%);
+}
+.ob-brand-mark {
+  border-radius: 50% 50% 50% 14%;
+}
+.ob-title h1 {
+  font-weight: 500;
+}
+.ob-app:after {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border: 1px solid #97b87b09;
+  border-radius: 70% 0 70% 0;
+  right: -40px;
+  top: -220px;
+  pointer-events: none;
+  z-index: -1;
+  transform: rotate(27deg);
+}
+.ob-stage {
+  background:
+    radial-gradient(ellipse at 50% 56%, #48674727, transparent 70%),
+    linear-gradient(135deg, #13271f44, #0b191688);
+}
+.ob-left .ob-panel:first-child {
+  border-top-color: #a9c68142;
+}
+.ob-insight-summary strong {
+  color: #d0d5a0;
+}
+.ob-right .ob-panel:last-child .ob-panel-heading {
+  margin-bottom: 6px;
+}
+.ob-right .ob-panel:last-child .ob-task {
+  padding: 10px 0;
+}
+.ob-right .ob-panel:last-child .ob-note {
+  margin-top: 5px;
+}
+@media (min-width: 1800px) {
+  .ob-right .ob-panel:last-child .ob-task {
+    padding: 8px 0;
+  }
+}
+@media (max-width: 650px) {
+  .ob-app:after {
+    display: none;
+  }
+}

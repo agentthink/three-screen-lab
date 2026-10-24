@@ -1,0 +1,4 @@
+# Optional asset regeneration only; Python 3.12+ required.
+numpy==2.5.4
+shapely==2.2.0
+pyshp==3.1.6

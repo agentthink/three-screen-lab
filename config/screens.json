@@ -1,0 +1,86 @@
+[
+  {
+    "id": "wind",
+    "title": "智慧风电监管平台",
+    "description": "透视机舱，探索从风能到电能的精密传动。",
+    "category": "3d",
+    "label": "WIND ENERGY",
+    "width": 1920,
+    "height": 1080,
+    "preview": "assets/previews/wind.webp",
+    "tags": ["数字孪生", "透明材质 Shader", "交互拆解"],
+    "renderer": "wind"
+  },
+  {
+    "id": "factory",
+    "title": "智慧工厂可视化大屏",
+    "description": "漫游精细厂区，掌握生产、仓储与设备运行。",
+    "category": "3d",
+    "label": "SMART FACTORY",
+    "width": 2048,
+    "height": 1020,
+    "preview": "assets/previews/factory.webp",
+    "tags": ["3D 厂区", "日夜切换", "发光网格"],
+    "renderer": "factory"
+  },
+  {
+    "id": "population",
+    "title": "全国人口统计总览",
+    "description": "环绕三维地球，感知人口分布与城市之间的流动。",
+    "category": "geo",
+    "label": "POPULATION ATLAS",
+    "width": 1920,
+    "height": 1080,
+    "preview": "assets/previews/population.webp",
+    "tags": ["WebGL 地球", "人口流动", "数据分析"],
+    "renderer": "population"
+  },
+  {
+    "id": "inspection",
+    "title": "AI 智能巡检运营调度",
+    "description": "连接地图、车辆与事件，让每一次调度清晰可见。",
+    "category": "geo",
+    "label": "AI OPERATIONS",
+    "width": 1920,
+    "height": 1040,
+    "preview": "assets/previews/inspection.webp",
+    "tags": ["立体地图", "轨迹播放", "运营调度"],
+    "renderer": "inspection"
+  },
+  {
+    "id": "agriculture",
+    "title": "禾境 · 智慧农业生态管理中心",
+    "description": "生长有迹，在数字农场中探索作物、气候与精准灌溉。",
+    "category": "operations",
+    "label": "PRECISION AGRICULTURE",
+    "width": 1920,
+    "height": 1080,
+    "preview": "assets/previews/agriculture.webp",
+    "tags": ["三维农场", "精准灌溉", "生态感知"],
+    "renderer": "generic"
+  },
+  {
+    "id": "industry",
+    "title": "NEXUS · 智慧工业数字运营中心",
+    "description": "深入自动化车间，联动生产、质量、设备与能源。",
+    "category": "operations",
+    "label": "INDUSTRIAL INTELLIGENCE",
+    "width": 1920,
+    "height": 1080,
+    "preview": "assets/previews/industry.webp",
+    "tags": ["机械臂车间", "生产协同", "设备监控"],
+    "renderer": "generic"
+  },
+  {
+    "id": "park",
+    "title": "星屿 · 智慧园区运营中心",
+    "description": "连接智慧楼宇、绿色能源与园区生活的每一个瞬间。",
+    "category": "operations",
+    "label": "CONNECTED CAMPUS",
+    "width": 1920,
+    "height": 1080,
+    "preview": "assets/previews/park.webp",
+    "tags": ["三维园区", "楼宇空间", "零碳能源"],
+    "renderer": "generic"
+  }
+]

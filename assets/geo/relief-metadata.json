@@ -1,0 +1,20 @@
+{
+  "source": "Natural Earth SR_50M",
+  "license": "Public domain",
+  "inputs": [
+    "relief",
+    "land"
+  ],
+  "generator": "scripts/prepare_assets.py",
+  "width": 1920,
+  "height": 1182,
+  "extent": {
+    "xmin": 2666594.4689710406,
+    "ymin": -780454.0691041537,
+    "xmax": 20675451.880735748,
+    "ymax": 10306248.775013495,
+    "spatialReference": {
+      "wkid": 3857
+    }
+  }
+}

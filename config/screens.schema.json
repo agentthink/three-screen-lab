@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VIZ LAB screen registry",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "title",
+      "description",
+      "category",
+      "label",
+      "width",
+      "height",
+      "preview",
+      "tags",
+      "renderer"
+    ],
+    "properties": {
+      "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,39}$" },
+      "title": { "type": "string", "minLength": 1 },
+      "description": { "type": "string", "minLength": 1 },
+      "category": { "enum": ["3d", "geo", "operations"] },
+      "label": { "type": "string", "minLength": 1 },
+      "width": { "type": "integer", "minimum": 320, "maximum": 7680 },
+      "height": { "type": "integer", "minimum": 240, "maximum": 4320 },
+      "preview": { "type": "string", "pattern": "^assets/previews/" },
+      "tags": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 5,
+        "items": { "type": "string", "minLength": 1 }
+      },
+      "renderer": { "enum": ["wind", "factory", "population", "inspection", "generic"] }
+    }
+  }
+}

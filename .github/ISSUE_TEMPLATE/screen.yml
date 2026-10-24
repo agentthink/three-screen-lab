@@ -1,0 +1,18 @@
+name: New screen / 新增大屏
+description: Plan a new screen before implementation
+title: '[Screen] '
+body:
+  - type: input
+    id: title
+    attributes: { label: 'Theme and screen id / 主题与标识' }
+    validations: { required: true }
+  - type: textarea
+    id: scope
+    attributes: { label: 'Interaction, dimensions and acceptance / 交互、尺寸与验收' }
+    validations: { required: true }
+  - type: textarea
+    id: assets
+    attributes:
+      label: Asset origins and permissions / 素材来源与许可
+      description: Link the source and explicit license. Do not upload unlicensed references or models.
+    validations: { required: true }

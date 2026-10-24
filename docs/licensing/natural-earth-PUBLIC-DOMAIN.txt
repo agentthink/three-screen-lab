@@ -1,0 +1,11 @@
+Natural Earth — public-domain geographic data
+
+Provider: Natural Earth / NACIS; Tom Patterson, Nathaniel Vaughn Kelso and contributors.
+Terms checked: 2026-10-20
+Primary permission statement: https://www.naturalearthdata.com/about/terms-of-use/
+
+"All versions of Natural Earth raster + vector map data found on this website are in the public domain."
+
+The provider expressly permits commercial use, modification and electronic redistribution, without requiring permission or attribution. We retain credit voluntarily. Source archive URLs, exact versions and SHA-256 checksums are in config/asset-sources.json. Download-page version labels sometimes differ from archive contents; the recorded archive version and checksum identify our actual inputs.
+
+Geographic features follow the upstream dataset's conventions and generalization. Data is provided without accuracy guarantees. The project does not present these demonstration maps as an official survey or authoritative boundary dataset.

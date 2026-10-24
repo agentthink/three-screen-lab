@@ -1,0 +1,34 @@
+[
+  {
+    "historicalName": "china.json",
+    "sha256": "99adfeded5223848bbe37a0a12f8023e11ee12161c7800521c27db42fdeac275"
+  },
+  {
+    "historicalName": "china-outline.json",
+    "sha256": "83ac502aeac66a5527607ec844169418505d990f1a2dc33226743643541eed3c"
+  },
+  {
+    "historicalName": "relief-metadata.json",
+    "sha256": "fbbc9675978992caabe682f45c0c543141041851434c8ae65c431065d1821be9"
+  },
+  {
+    "historicalName": "earth-day.jpg",
+    "sha256": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d"
+  },
+  {
+    "historicalName": "earth-night.png",
+    "sha256": "0564fa57f5fade2f65e56d3ad59b3c6bf5e32c44f60370a3e46fd367b0cabaee"
+  },
+  {
+    "historicalName": "earth-normal.jpg",
+    "sha256": "3fc43e9639c34e8223c4a871e3bdf5b2d52ee79f7e89ce3f28cba45d4cac031a"
+  },
+  {
+    "historicalName": "relief.png",
+    "sha256": "9b46fd4a82753bfd673ff91ac521b874be1d7eeeffbd7693b1e1ce6578802a4d"
+  },
+  {
+    "historicalName": "grid-mask.png",
+    "sha256": "52f6eead38b8363b1ca159a910670c9f8dcfe94e08f2b34fc53db466cc794e95"
+  }
+]

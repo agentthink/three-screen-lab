@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>全国人口统计总览</title>
+    <style>
+      /*__POPULATION_CSS__*/
+    </style>
+  </head>
+  <body>
+    <svg class="icon-defs" width="0" height="0" aria-hidden="true">
+      <defs>
+        <linearGradient id="person-blue" x2="1" y2="1">
+          <stop stop-color="#d7f4ff" />
+          <stop offset=".5" stop-color="#91b9d1" />
+          <stop offset="1" stop-color="#5a829e" />
+        </linearGradient>
+        <linearGradient id="person-gold" x2="1" y2="1">
+          <stop stop-color="#fcf0c0" />
+          <stop offset="1" stop-color="#b4ad87" />
+        </linearGradient>
+        <symbol id="p-man" viewBox="0 0 40 55">
+          <circle cx="20" cy="8" r="5" />
+          <path d="M15 16h10l5 17-4 1-3-12 1 29h-5l-1-20-1 20h-5l1-29-3 12-4-1 5-17Z" />
+        </symbol>
+        <symbol id="p-woman" viewBox="0 0 40 55">
+          <circle cx="20" cy="8" r="5" />
+          <path d="m15 16 10 0 8 15-3 2-6-11 6 17h-7l-1 12h-4l-1-12h-7l6-17-6 11-3-2 8-15Z" />
+        </symbol>
+        <symbol id="p-ethnic" viewBox="0 0 28 28">
+          <path
+            d="M7 4h13M10 2v5M5 8h18M8 8l-3 6m7-6-2 6m7-6 2 6m3-6 2 6M9 15h11M5 20h18M8 17v8m6-10v10m6-8v8"
+          />
+        </symbol>
+        <symbol id="p-diamond" viewBox="0 0 28 28">
+          <path d="M3 8h22l-11 16L3 8Zm0 0 6-5h10l6 5M9 3l5 21 5-21M3 8h22" />
+        </symbol>
+        <symbol id="p-city" viewBox="0 0 28 28">
+          <path
+            d="M4 25V8h10v17M14 25V3h10v22M2 25h24M7 12h4m-4 5h4m-4 4h4M17 7h4m-4 5h4m-4 5h4m-4 4h4"
+          />
+        </symbol>
+        <symbol id="p-village" viewBox="0 0 28 28">
+          <path d="m2 12 12-9 12 9M5 11v14h18V11M11 25v-9h6v9M8 12h3m6 0h3M3 25h22" />
+        </symbol>
+        <symbol id="p-flow" viewBox="0 0 24 24">
+          <path d="M4 18 10 5l4 13m-8-5h12M15 4l5 5-5 5M3 20h17" />
+        </symbol>
+        <symbol id="p-grid" viewBox="0 0 24 24">
+          <path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" />
+        </symbol>
+        <symbol id="p-list" viewBox="0 0 24 24">
+          <path d="M4 4h16v17H4zM8 8h8m-8 4h8m-8 4h8" />
+        </symbol>
+        <symbol id="p-close" viewBox="0 0 24 24"><path d="m5 5 14 14M5 19 19 5" /></symbol>
+        <symbol id="p-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM15 4h4v16h-4z" /></symbol>
+        <symbol id="p-play" viewBox="0 0 24 24"><path d="m7 3 15 9-15 9Z" /></symbol>
+        <symbol id="p-expand" viewBox="0 0 24 24">
+          <path d="M9 3H3v6m12-6h6v6M3 15v6h6m6 0h6v-6" />
+        </symbol>
+      </defs>
+    </svg>
+    <div id="population-viewport">
+      <main id="population-screen" aria-label="全国人口统计总览">
+        <canvas id="space-stars" aria-hidden="true"></canvas
+        ><svg class="background-lines" viewBox="0 0 2160 1200" aria-hidden="true">
+          <defs>
+            <pattern id="slant-lines" width="460" height="300" patternUnits="userSpaceOnUse">
+              <path
+                d="m-60 20 130 130m240-50 110 110M40 270l30 30m340-280-140 140"
+                stroke="#91b4cf"
+                stroke-width="5"
+                stroke-opacity=".11"
+              />
+              <path
+                d="m65 55 25 25m130 160 65 65"
+                stroke="#a3bfd4"
+                stroke-width="2"
+                stroke-opacity=".12"
+              />
+            </pattern>
+          </defs>
+          <rect width="2160" height="1200" fill="url(#slant-lines)" />
+        </svg>
+        <div id="earth-stage" class="earth-stage">
+          <canvas
+            id="earth-canvas"
+            aria-label="可拖动缩放的三维地球及中国人口迁徙地图"
+            role="img"
+          ></canvas
+          ><svg id="earth-fallback" viewBox="0 0 2160 1200" aria-hidden="true"></svg>
+        </div>
+        <header class="population-header">
+          <img
+            class="population-header-art"
+            id="population-header-art"
+            src="/*__HEADER_ART__*/"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="header-marks">
+            <button id="animation-toggle" aria-label="暂停地球光效" aria-pressed="false">
+              <svg class="p-icon" aria-hidden="true"><use href="#p-pause" /></svg></button
+            ><button id="population-fullscreen" aria-label="全屏显示">
+              <svg class="p-icon" aria-hidden="true"><use href="#p-expand" /></svg>
+            </button>
+          </div>
+          <button id="population-title" class="population-title">全国人口统计总览</button>
+          <button class="header-date" id="date-picker" aria-label="选择统计年份">
+            <span id="population-date">2022.05.10</span
+            ><strong id="population-clock">23:23:52</strong><i></i>
+          </button>
+        </header>
+        <svg class="left-rail" viewBox="0 0 45 1055" aria-hidden="true">
+          <path
+            d="M25 0v36m0 7v70m0 12v180l-25 30v55l25 24v129m0 37L0 610v445"
+            fill="none"
+            stroke="#a1c6dc"
+            stroke-opacity=".6"
+            stroke-width="1.6"
+          />
+          <path
+            d="M25 0v28m0 100v14m0 330v12m0 515v40"
+            stroke="#e0f0f8"
+            stroke-opacity=".6"
+            stroke-width="3"
+          />
+          <g fill="#e2f2ff">
+            <circle cx="25" cy="447" r="2" />
+            <circle cx="25" cy="466" r="1.5" />
+            <circle cx="25" cy="485" r="2" />
+          </g>
+        </svg>
+        <section class="p-panel gender-panel">
+          <div class="p-panel-heading">
+            <i class="heading-orb"></i>
+            <h2>性别构成</h2>
+            <span>Gender composition</span
+            ><button class="panel-more" data-detail="gender" aria-label="展开性别构成">···</button>
+          </div>
+          <div class="gender-metrics">
+            <button data-gender="male">
+              <span class="person-orbit"
+                ><svg class="person"><use href="#p-man" /></svg></span
+              ><span class="metric-copy"
+                ><label>男性人口</label><strong>19517<small>万人</small></strong></span
+              ></button
+            ><button data-gender="female">
+              <span class="person-orbit gold"
+                ><svg class="person"><use href="#p-woman" /></svg></span
+              ><span class="metric-copy"
+                ><label>女性人口</label><strong>17234<small>万人</small></strong></span
+              >
+            </button>
+          </div>
+          <div class="sex-ratio-label">
+            ○ 总人口性别比<span>（以女性为100，男性对女性比例）</span>
+          </div>
+          <svg
+            id="gender-chart"
+            class="p-chart"
+            viewBox="0 0 480 160"
+            role="img"
+            aria-label="2019至2022年性别比"
+          ></svg>
+        </section>
+        <section class="p-panel household-panel">
+          <div class="p-panel-heading">
+            <i class="heading-orb"></i>
+            <h2>户别人口</h2>
+            <span>Household population</span
+            ><button class="panel-more" data-detail="household" aria-label="展开户别人口">
+              ···
+            </button>
+          </div>
+          <div id="household-rows" class="household-rows"></div>
+        </section>
+        <section class="p-panel region-panel">
+          <div class="p-panel-heading">
+            <i class="heading-orb"></i>
+            <h2>地区分布</h2>
+            <span>Regional distribution</span
+            ><button class="panel-more" data-detail="region" aria-label="展开地区分布">···</button>
+          </div>
+          <svg
+            id="region-chart"
+            class="p-chart"
+            viewBox="0 0 480 258"
+            role="img"
+            aria-label="全国人口地区分布"
+          ></svg>
+          <div id="region-legend" class="region-legend" aria-label="地区分布图例"></div>
+        </section>
+        <section class="p-panel composition-panel">
+          <div class="p-panel-heading">
+            <i class="heading-orb"></i>
+            <h2>民族/城乡分布</h2>
+            <span>Population distribution</span
+            ><button class="panel-more" data-detail="composition" aria-label="展开民族城乡分布">
+              ···
+            </button>
+          </div>
+          <div class="composition-grid" id="composition-grid"></div>
+        </section>
+        <section class="p-panel history-panel">
+          <div class="p-panel-heading">
+            <i class="heading-orb"></i>
+            <h2>历年总览</h2>
+            <span>Overview over the years</span
+            ><button class="panel-more" data-detail="history" aria-label="展开历年总览">···</button>
+          </div>
+          <div class="history-legend">
+            <button data-history-series="population" aria-pressed="true"><i></i>总人口</button
+            ><button data-history-series="growth" aria-pressed="true"><i></i>年增长率</button>
+          </div>
+          <svg
+            id="history-chart"
+            class="p-chart"
+            viewBox="0 0 480 198"
+            role="img"
+            aria-label="历年人口与增长率"
+          ></svg>
+        </section>
+        <section class="p-panel age-panel">
+          <div class="p-panel-heading">
+            <i class="heading-orb"></i>
+            <h2>年龄构成</h2>
+            <span>Age composition</span
+            ><button class="panel-more" data-detail="age" aria-label="展开年龄构成">···</button>
+          </div>
+          <svg
+            id="age-chart"
+            class="p-chart"
+            viewBox="0 0 480 220"
+            role="img"
+            aria-label="五个年龄组的人口构成"
+          ></svg>
+        </section>
+        <nav class="map-controls" aria-label="地球人口数据模式">
+          <button class="active" id="flow-mode" data-map-mode="flow" aria-pressed="true">
+            <svg class="p-icon"><use href="#p-flow" /></svg>人口流动</button
+          ><button id="distribution-mode" data-map-mode="distribution" aria-pressed="false">
+            <svg class="p-icon"><use href="#p-grid" /></svg>人口分布</button
+          ><button id="provinces-mode" data-map-mode="provinces" aria-pressed="false">
+            <svg class="p-icon"><use href="#p-list" /></svg>各省数据
+          </button>
+        </nav>
+        <div id="map-legend" class="map-legend" hidden>
+          <span>人口密度</span><i></i><small>低</small><small>高</small>
+        </div>
+        <button class="reset-globe" id="reset-globe" aria-label="复位地球视角">
+          <span class="diamond-frame frame-one"></span><span class="diamond-frame frame-two"></span
+          ><span class="diamond-frame frame-three"></span><strong>复位</strong>
+        </button>
+        <aside class="province-drawer" id="province-drawer" aria-label="各省人口数据">
+          <div class="drawer-heading">
+            <h2>各省人口数据</h2>
+            <button id="close-drawer" aria-label="关闭省份数据">×</button>
+          </div>
+          <input type="search" id="province-search" placeholder="搜索省份" aria-label="搜索省份" />
+          <div id="province-list" class="province-list"></div>
+          <button class="p-button" id="province-export">导出省份数据</button>
+        </aside>
+        <aside class="province-card" id="province-card" aria-live="polite"></aside>
+        <div class="globe-hint" id="globe-hint">拖动旋转 · 滚轮缩放</div>
+        <div id="population-tooltip" class="population-tooltip" role="tooltip"></div>
+        <div id="population-toast" class="population-toast" role="status" aria-live="polite"></div>
+        <div class="p-dialog-backdrop" id="p-dialog-backdrop">
+          <section
+            class="p-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="p-dialog-title"
+          >
+            <header>
+              <i class="heading-orb"></i>
+              <h2 id="p-dialog-title"></h2>
+              <button id="p-dialog-close" aria-label="关闭弹窗">
+                <svg class="p-icon"><use href="#p-close" /></svg>
+              </button>
+            </header>
+            <div class="p-dialog-body" id="p-dialog-body"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="portrait-hint">横屏体验全景人口可视化</div>
+    <script>
+      /*__D3__*/
+    </script>
+    <script>
+      /*__THREE__*/
+    </script>
+    <script>
+      const POPULATION_CHINA = null; /*__POPULATION_CHINA__*/
+      const POPULATION_OUTLINE = null; /*__POPULATION_OUTLINE__*/
+      const POPULATION_WORLD = null; /*__POPULATION_WORLD__*/
+      const EARTH_TEXTURES = {
+        day: '/*__EARTH_DAY__*/',
+        night: '/*__EARTH_NIGHT__*/',
+        normal: '/*__EARTH_NORMAL__*/',
+      };
+    </script>
+    <script>
+      /*__POPULATION_JS__*/
+    </script>
+    <script>
+      /*__GLOBE_JS__*/
+    </script>
+  </body>
+</html>

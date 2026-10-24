@@ -1,0 +1,7 @@
+assets/
+dist/
+.local/
+node_modules/
+.venv/
+docs/media/
+package-lock.json

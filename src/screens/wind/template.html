@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>智慧风电监管平台 · 三维数字孪生</title>
+    <style>
+      /*__WIND_CSS__*/
+    </style>
+  </head>
+  <body>
+    <main id="wind-screen" aria-label="智慧风电监管平台">
+      <div class="top-brand">
+        <a href="home.html" aria-label="返回大屏展厅"><i>VL</i><b>VIZ / LAB</b></a>
+      </div>
+      <div class="dashboard-frame">
+        <div class="frame-line"></div>
+        <div class="frame-corners"></div>
+        <header class="wind-header">
+          <h1><em>VIZLAB</em> 智慧风电监管平台</h1>
+          <div class="header-underlines"></div>
+          <a href="home.html" class="home-link">⌘ 大屏展厅</a>
+          <div class="connection"><i></i>系统在线 <span id="wind-clock">00:00:00</span></div>
+        </header>
+        <section class="wind-left" aria-label="风机基础信息">
+          <h2 class="panel-title"><strong>风机基础信息</strong><span>Basic Information</span></h2>
+          <div class="turbine-card">
+            <div class="turbine-glyph">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient id="mini-blade">
+                    <stop stop-color="#d9efff" />
+                    <stop offset="1" stop-color="#4097ac" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="43" />
+                <circle cx="50" cy="50" r="34" />
+                <g class="mini-rotor">
+                  <path d="M49 46C30 29 32 16 38 14L51 41Z" />
+                  <path d="M54 47C77 38 87 43 86 50L58 54Z" />
+                  <path d="M48 56C44 81 35 86 29 81L43 54Z" />
+                  <circle cx="50" cy="50" r="7" />
+                </g>
+                <path d="M7 8h8M7 8v8m78-8h8v8M7 85v8h8m78-8v8h-8" />
+              </svg>
+            </div>
+            <div class="turbine-basic">
+              <div class="little-bars"></div>
+              <p>风机名称 <b id="unit-name">G1029</b></p>
+              <p>运行状态 <strong id="unit-status">并网</strong></p>
+              <div class="cyan-rule"></div>
+            </div>
+          </div>
+          <div class="metric-list">
+            <button class="metric" data-detail="power">
+              <span class="metric-art"
+                ><svg viewBox="0 0 90 85">
+                  <path class="base" d="m8 53 36-19 37 19-37 23Z" />
+                  <path class="base lower" d="m8 60 36 19 37-19v7L44 85 8 67Z" />
+                  <circle cx="44" cy="33" r="18" />
+                  <path d="m29 35 8-1 4-12 6 22 6-12h7" /></svg></span
+              ><span class="metric-data"
+                ><span>功率 <small>Power</small></span
+                ><span>(KW) <b id="metric-power">8</b></span></span
+              >
+            </button>
+            <button class="metric" data-detail="speed">
+              <span class="metric-art"
+                ><svg viewBox="0 0 90 85">
+                  <path class="base" d="m8 53 36-19 37 19-37 23Z" />
+                  <path class="base lower" d="m8 60 36 19 37-19v7L44 85 8 67Z" />
+                  <path
+                    d="M22 27h33c15 0 13-21 2-16M19 38h44c15 0 15 19 2 17M28 17h13c10 0 10-13 2-13M25 49h16"
+                  /></svg></span
+              ><span class="metric-data"
+                ><span>风速 <small>Speed</small></span
+                ><span>(m/s) <b id="metric-speed">5.6</b></span></span
+              >
+            </button>
+            <button class="metric" data-detail="direction">
+              <span class="metric-art"
+                ><svg viewBox="0 0 90 85">
+                  <path class="base" d="m8 53 36-19 37 19-37 23Z" />
+                  <path class="base lower" d="m8 60 36 19 37-19v7L44 85 8 67Z" />
+                  <path d="m24 29 40-17-14 39-8-16Z" />
+                  <path d="m43 34 21-22" /></svg></span
+              ><span class="metric-data"
+                ><span>风向 <small>Direction</small></span
+                ><span>(度) <b id="metric-direction">30</b></span></span
+              >
+            </button>
+            <button class="metric" data-detail="temperature">
+              <span class="metric-art"
+                ><svg viewBox="0 0 90 85">
+                  <path class="base" d="m8 53 36-19 37 19-37 23Z" />
+                  <path class="base lower" d="m8 60 36 19 37-19v7L44 85 8 67Z" />
+                  <path d="M37 34V13a7 7 0 0 1 14 0v21a14 14 0 1 1-14 0Z" />
+                  <path d="M44 17v28m15-27h6m-6 8h9" />
+                  <circle cx="44" cy="45" r="5" /></svg></span
+              ><span class="metric-data"
+                ><span>环境温度 <small>Temperature</small></span
+                ><span>(℃) <b id="metric-temperature">18</b></span></span
+              >
+            </button>
+          </div>
+          <div class="identity-block violet">
+            <p><i>▸</i>并网时间：<b>2016-07-10 05:55:00</b></p>
+            <p><i>▸</i>移交生产日期：<b>2022-03-30 06:30:21</b></p>
+          </div>
+          <div class="identity-block blue">
+            <p><i>▸</i>装机容量：<b>10 MW</b></p>
+            <p><i>▸</i>风机类型：<b>海上风力发电机</b></p>
+          </div>
+          <div class="identity-block teal">
+            <p><i>▸</i>生产厂家：<b>VIZLAB 演示机组</b></p>
+            <p><i>▸</i>机组型号：<b>GFW20459</b></p>
+          </div>
+        </section>
+        <section class="wind-center" aria-label="三维风机数字孪生">
+          <div class="unit-selector">
+            <label for="unit-select">当前风机：</label
+            ><select id="unit-select">
+              <option>G1029</option>
+              <option>G1030</option>
+              <option>G1031</option>
+            </select>
+          </div>
+          <div id="turbine-host">
+            <div class="model-loading"><span></span><b>正在构建三维机组</b></div>
+          </div>
+          <button class="round-control model-reset" id="wind-reset" aria-label="复位三维视角">
+            ↶
+          </button>
+          <button
+            class="round-control model-orbit"
+            id="wind-orbit"
+            aria-label="自动环绕三维模型"
+            aria-pressed="false"
+          >
+            ⟳
+          </button>
+          <div class="side-controls">
+            <button
+              class="round-control"
+              id="wind-annotations"
+              aria-label="显示模型部件标注"
+              aria-pressed="false"
+            >
+              ⌁</button
+            ><button
+              class="round-control"
+              id="wind-light"
+              aria-label="切换冷光材质"
+              aria-pressed="false"
+            >
+              ♨</button
+            ><button
+              class="round-control production-mode"
+              id="wind-production"
+              aria-label="切换生产监测视角"
+            >
+              <svg viewBox="0 0 50 50">
+                <g fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="25" cy="25" r="4" />
+                  <path
+                    d="M25 21C8 9 17 2 23 9l3 12M29 25c18-8 20 4 11 6l-12-2M23 29C18 49 7 43 13 35l9-9"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div class="model-caption">
+            <span id="mode-label">精密透视 · X-RAY</span>
+            <p>拖动旋转 <i>·</i> 滚轮缩放 <i>·</i> 点击部件查看详情</p>
+          </div>
+          <div class="model-annotations" id="model-annotations">
+            <span data-part="rotor">轮毂 · PITCH SYSTEM</span
+            ><span data-part="gearbox">齿轮箱 · GEARBOX</span
+            ><span data-part="generator">发电机 · GENERATOR</span>
+          </div>
+          <div class="model-toolbar">
+            <button id="wind-running" class="active" aria-pressed="true">
+              风机启停<span>运行中</span></button
+            ><button id="wind-wire" aria-pressed="false">线框模式<span>WIREFRAME</span></button
+            ><button id="wind-explode" aria-pressed="false">爆炸效果<span>EXPLODED</span></button
+            ><button id="wind-flow" aria-pressed="false">发电工艺<span>ENERGY FLOW</span></button>
+          </div>
+          <div class="model-bottom-line"></div>
+          <div class="live-model">
+            <i></i>LIVE DIGITAL TWIN <span id="model-state">10 MW / G1029</span>
+          </div>
+        </section>
+        <aside class="wind-right">
+          <section class="generation">
+            <h2 class="panel-title"><strong>风机发电量</strong><span>Generating Capacity</span></h2>
+            <p class="unit-note">单位：万kWh <span>ENERGY OUTPUT</span></p>
+            <div class="capacity-dials">
+              <button data-period="day" style="--dial: #6ddde1; --angle: 278deg">
+                <span class="dial"><b id="energy-day">12</b><small>本日</small></span></button
+              ><button data-period="month" style="--dial: #c6b1df; --angle: 318deg">
+                <span class="dial"><b id="energy-month">300</b><small>本月</small></span></button
+              ><button data-period="year" style="--dial: #cae2be; --angle: 240deg">
+                <span class="dial"><b id="energy-year">3212</b><small>本年</small></span>
+              </button>
+            </div>
+          </section>
+          <section class="power-panel">
+            <h2 class="panel-title"><strong>风速-功率曲线</strong><span>Wind Speed Power</span></h2>
+            <div class="chart-legend">
+              <span>(kW)</span
+              ><button data-series="speed" aria-pressed="true">
+                <i style="--series: #98e4dc"></i>风速</button
+              ><button data-series="load" aria-pressed="true">
+                <i style="--series: #369ed3"></i>负荷</button
+              ><button data-series="theory" aria-pressed="true">
+                <i style="--series: #c9bfdc"></i>理论负荷</button
+              ><span>(m/s)</span>
+            </div>
+            <svg
+              id="wind-chart"
+              viewBox="0 0 380 245"
+              role="img"
+              aria-label="风速与功率全天趋势"
+            ></svg>
+          </section>
+          <section class="parameters">
+            <h2 class="panel-title"><strong>主要发电运行参数</strong><span>Parameter</span></h2>
+            <div class="parameter-row">
+              <button class="parameter-gauge" data-detail="power"><i></i><span>功率</span></button>
+              <div class="parameter-table">
+                <div><span>有功功率</span><span>无功功率</span></div>
+                <div>
+                  <b id="active-power">1563 <small>kW</small></b
+                  ><b>-2.2 <small>kVar</small></b>
+                </div>
+                <div><span>理论功率</span><span>功率因素</span></div>
+                <div>
+                  <b>1340.42 <small>kW</small></b
+                  ><b>20</b>
+                </div>
+              </div>
+            </div>
+            <div class="parameter-row">
+              <button class="parameter-gauge" data-detail="grid"><i></i><span>电网</span></button>
+              <div class="parameter-table">
+                <div><span>电网电流</span><span>电网电压</span></div>
+                <div>
+                  <b>1338.4 <small>A</small></b
+                  ><b>393.8 <small>kV</small></b>
+                </div>
+                <div><span>电网频率</span><span></span></div>
+                <div>
+                  <b>49.99 <small>Hz</small></b
+                  ><b></b>
+                </div>
+              </div>
+            </div>
+            <div class="parameter-footer">
+              <span
+                >负荷率 <b id="load-rate">56.8 <small>%</small></b></span
+              ><span
+                >发电机转速 <b id="rpm">1549 <small>rpm</small></b></span
+              >
+            </div>
+          </section>
+        </aside>
+      </div>
+      <div class="bottom-brand">
+        <span>WIND POWER INTELLIGENCE</span><span>三维可视化演示 · 数据为模拟</span>
+      </div>
+      <div class="wind-tooltip" id="wind-tooltip" role="tooltip"></div>
+      <div class="wind-toast" id="wind-toast" role="status"></div>
+      <div class="wind-modal-backdrop" id="wind-modal">
+        <section role="dialog" aria-modal="true" aria-labelledby="detail-title">
+          <button id="close-detail" aria-label="关闭详情">×</button
+          ><span class="eyebrow">TURBINE INSIGHT</span>
+          <h2 id="detail-title"></h2>
+          <div id="detail-content"></div>
+          <button class="detail-done" id="detail-done">返回监控</button>
+        </section>
+      </div>
+    </main>
+    <script>
+      /*__THREE__*/
+    </script>
+    <script>
+      /*__D3__*/
+    </script>
+    <script>
+      /*__WIND_MODEL__*/
+    </script>
+    <script>
+      /*__RUNTIME__*/
+    </script>
+    <script>
+      /*__SCREEN_DATA__*/
+    </script>
+    <script>
+      /*__WIND_JS__*/
+    </script>
+  </body>
+</html>

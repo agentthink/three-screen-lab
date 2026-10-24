@@ -1,0 +1,13 @@
+node_modules/
+.venv/
+.local/
+dist/
+test-results/
+playwright-report/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+!.env.example
+_source-import.zip
