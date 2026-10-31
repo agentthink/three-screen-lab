@@ -4,5 +4,5 @@ mypy_extensions==1.1.0
 packaging==26.3
 pathspec==1.1.1
 pillow==12.2.0
-platformdirs==4.13.5
+platformdirs==4.13.6
 pytokens==0.4.1
